@@ -1,0 +1,269 @@
+@prefix : <http://ontology.example.org/ci#> .
+@prefix ci: <http://ontology.example.org/ci#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ontology.example.org/ci> .
+
+###  http://ontology.example.org/ci#CLAsNeeded
+ci:CLAsNeeded rdf:type owl:NamedIndividual ,
+                       ci:AsNeeded ;
+              ci:hasDescription "We retain data as needed for our business purposes and/or as required by law." .
+
+
+###  http://ontology.example.org/ci#CLCollectionProcessing
+ci:CLCollectionProcessing rdf:type owl:NamedIndividual ,
+                                   <http://w3.org/ns/dpv#Collect> .
+
+
+###  http://ontology.example.org/ci#CLDataRecipient
+ci:CLDataRecipient rdf:type owl:NamedIndividual ,
+                            <http://w3.org/ns/dpv#Recipient> ;
+                   ci:name "Craigslist" .
+
+
+###  http://ontology.example.org/ci#CLDataSubject
+ci:CLDataSubject rdf:type owl:NamedIndividual ,
+                          <http://w3.org/ns/dpv#DataSubject> .
+
+
+###  http://ontology.example.org/ci#CLFraudCombatCollectionPurpose
+ci:CLFraudCombatCollectionPurpose rdf:type owl:NamedIndividual ;
+                                  ci:hasDescription "combat fraud/abuse" .
+
+
+###  http://ontology.example.org/ci#CLImproveServiceCollectionPurpose
+ci:CLImproveServiceCollectionPurpose rdf:type owl:NamedIndividual ;
+                                     ci:hasDescription "provide/improve our services" .
+
+
+###  http://ontology.example.org/ci#CLStorageConditionalityVagueness
+ci:CLStorageConditionalityVagueness rdf:type owl:NamedIndividual ,
+                                             ci:Conditionality ;
+                                    ci:hasVagueParameter ci:CLStorageMeasure ,
+                                                         ci:CLStoragePurpose ;
+                                    ci:hasDescription "We make good faith efforts to store data securely, but can make no guarantees." ,
+                                                      "We retain data as needed for our business purposes and/or as required by law." .
+
+
+###  http://ontology.example.org/ci#CLStorageMeasure
+ci:CLStorageMeasure rdf:type owl:NamedIndividual ,
+                             <http://w3.org/ns/dpv#TechnicalOrganisationalMeasure> ;
+                    ci:hasDescription "We make good faith efforts to store data securely, but can make no guarantees." .
+
+
+###  http://ontology.example.org/ci#CLStorageProcessing
+ci:CLStorageProcessing rdf:type owl:NamedIndividual ,
+                                <http://w3.org/ns/dpv#Store> .
+
+
+###  http://ontology.example.org/ci#CLStoragePurpose
+ci:CLStoragePurpose rdf:type owl:NamedIndividual ;
+                    ci:hasDescription "We retain data as needed for our business purposes and/or as required by law." .
+
+
+###  http://ontology.example.org/ci#CLTOMConditionalityVagueness
+ci:CLTOMConditionalityVagueness rdf:type owl:NamedIndividual ,
+                                         ci:Conditionality ;
+                                ci:hasVagueParameter ci:CLTechnicalorganisationalMeasure ;
+                                ci:hasDescription "We take precautions to prevent unauthorized access to or misuse of data about you." .
+
+
+###  http://ontology.example.org/ci#CLTechnicalorganisationalMeasure
+ci:CLTechnicalorganisationalMeasure rdf:type owl:NamedIndividual ,
+                                             <http://w3.org/ns/dpv#TechnicalOrganisationalMeasure> ;
+                                    ci:hasDescription "We take precautions to prevent unauthorized access to or misuse of data about you." .
+
+
+###  http://ontology.example.org/ci#CLThirdPartyRecipient
+ci:CLThirdPartyRecipient rdf:type owl:NamedIndividual ,
+                                  <http://w3.org/ns/dpv#ThirdParty> .
+
+
+###  http://ontology.example.org/ci#CLThirdPartySource
+ci:CLThirdPartySource rdf:type owl:NamedIndividual ,
+                               ci:DataSource .
+
+
+###  http://ontology.example.org/ci#CLdh01
+ci:CLdh01 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasCollectionProcessing ci:CLCollectionProcessing ;
+          ci:hasCollectionPurpose ci:CLFraudCombatCollectionPurpose ,
+                                  ci:CLImproveServiceCollectionPurpose ;
+          ci:hasDataSource ci:CLDataSubject ;
+          ci:hasPrivacyPolicy ci:CraigslistPP ;
+          ci:hasVaguenessCategory ci:CLTOMConditionalityVagueness ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLTechnicalorganisationalMeasure ;
+          ci:hasDescription "data you post on or send via CL, and/or send us directly or via other sites" .
+
+
+###  http://ontology.example.org/ci#CLdh02
+ci:CLdh02 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasCollectionProcessing ci:CLCollectionProcessing ;
+          ci:hasCollectionPurpose ci:CLFraudCombatCollectionPurpose ,
+                                  ci:CLImproveServiceCollectionPurpose ;
+          ci:hasPrivacyPolicy ci:CraigslistPP ;
+          ci:hasThirdPartyRecipient ci:CLThirdPartyRecipient ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasPersonalDataCategory> ci:CLdh02CCData ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLTechnicalorganisationalMeasure ;
+          ci:hasDescription "credit card data, which is transmitted to payment processors via a security protocol (e.g. SSL)." .
+
+
+###  http://ontology.example.org/ci#CLdh02CCData
+ci:CLdh02CCData rdf:type owl:NamedIndividual ,
+                         <http://w3.org/ns/dpv#CreditCardNumber> .
+
+
+###  http://ontology.example.org/ci#CLdh03
+ci:CLdh03 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasCollectionProcessing ci:CLCollectionProcessing ;
+          ci:hasCollectionPurpose ci:CLFraudCombatCollectionPurpose ,
+                                  ci:CLImproveServiceCollectionPurpose ;
+          ci:hasDataSource ci:CLDataSubject ;
+          ci:hasPrivacyPolicy ci:CraigslistPP ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasPersonalDataCategory> ci:CLdh03Address ,
+                                                         ci:CLdh03Email ,
+                                                         ci:CLdh03Name ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLTechnicalorganisationalMeasure ;
+          ci:hasDescription "data you submit or provide (e.g. name, address, email, phone, fax, photos, tax ID)." .
+
+
+###  http://ontology.example.org/ci#CLdh03Address
+ci:CLdh03Address rdf:type owl:NamedIndividual ,
+                          <http://w3.org/ns/dpv#PhysicalAddress> .
+
+
+###  http://ontology.example.org/ci#CLdh03Email
+ci:CLdh03Email rdf:type owl:NamedIndividual ,
+                        <http://w3.org/ns/dpv#EmailAddress> .
+
+
+###  http://ontology.example.org/ci#CLdh03Name
+ci:CLdh03Name rdf:type owl:NamedIndividual ,
+                       <http://w3.org/ns/dpv#Name> .
+
+
+###  http://ontology.example.org/ci#CLdh04
+ci:CLdh04 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasCollectionProcessing ci:CLCollectionProcessing ;
+          ci:hasCollectionPurpose ci:CLFraudCombatCollectionPurpose ,
+                                  ci:CLImproveServiceCollectionPurpose ;
+          ci:hasPrivacyPolicy ci:CraigslistPP ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasPersonalDataCategory> ci:CLdh04BrowsingBehaviour ,
+                                                         ci:CLdh04IPAddress ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLTechnicalorganisationalMeasure ;
+          ci:hasDescription "web log data (e.g. web pages viewed, access times, IP address, HTTP headers)." .
+
+
+###  http://ontology.example.org/ci#CLdh04BrowsingBehaviour
+ci:CLdh04BrowsingBehaviour rdf:type owl:NamedIndividual ,
+                                    <http://w3.org/ns/dpv#BrowsingBehavior> .
+
+
+###  http://ontology.example.org/ci#CLdh04IPAddress
+ci:CLdh04IPAddress rdf:type owl:NamedIndividual ,
+                            <http://w3.org/ns/dpv#IPAddress> .
+
+
+###  http://ontology.example.org/ci#CLdh05
+ci:CLdh05 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasCollectionProcessing ci:CLCollectionProcessing ;
+          ci:hasCollectionPurpose ci:CLFraudCombatCollectionPurpose ,
+                                  ci:CLImproveServiceCollectionPurpose ;
+          ci:hasDataSource ci:CLdh05CookieSource ;
+          ci:hasPrivacyPolicy ci:CraigslistPP ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasPersonalDataCategory> ci:CLdh05BrowsingBehaviour ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLTechnicalorganisationalMeasure ;
+          ci:hasDescription "data collected via cookies (e.g. search data and \"favorites\" lists)." .
+
+
+###  http://ontology.example.org/ci#CLdh05BrowsingBehaviour
+ci:CLdh05BrowsingBehaviour rdf:type owl:NamedIndividual ,
+                                    <http://w3.org/ns/dpv#BrowsingBehavior> .
+
+
+###  http://ontology.example.org/ci#CLdh05CookieSource
+ci:CLdh05CookieSource rdf:type owl:NamedIndividual ,
+                               ci:DataSource .
+
+
+###  http://ontology.example.org/ci#CLdh06
+ci:CLdh06 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasCollectionProcessing ci:CLCollectionProcessing ;
+          ci:hasCollectionPurpose ci:CLFraudCombatCollectionPurpose ,
+                                  ci:CLImproveServiceCollectionPurpose ;
+          ci:hasDataSource ci:CLdh06DeviceSource ;
+          ci:hasPrivacyPolicy ci:CraigslistPP ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasPersonalDataCategory> ci:CLdh06DeviceInfo ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLTechnicalorganisationalMeasure ;
+          ci:hasDescription "data about your device(s) (e.g. screen size, DOM local storage, plugins)." .
+
+
+###  http://ontology.example.org/ci#CLdh06DeviceInfo
+ci:CLdh06DeviceInfo rdf:type owl:NamedIndividual ,
+                             <http://w3.org/ns/dpv#DeviceBased> .
+
+
+###  http://ontology.example.org/ci#CLdh06DeviceSource
+ci:CLdh06DeviceSource rdf:type owl:NamedIndividual ,
+                               ci:DataSource .
+
+
+###  http://ontology.example.org/ci#CLdh07
+ci:CLdh07 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasCollectionProcessing ci:CLCollectionProcessing ;
+          ci:hasCollectionPurpose ci:CLFraudCombatCollectionPurpose ,
+                                  ci:CLImproveServiceCollectionPurpose ;
+          ci:hasDataSource ci:CLThirdPartySource ;
+          ci:hasPrivacyPolicy ci:CraigslistPP ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLTechnicalorganisationalMeasure ;
+          ci:hasDescription "data from 3rd parties (e.g. phone type, geo-location via IP address)." .
+
+
+###  http://ontology.example.org/ci#CLdh08
+ci:CLdh08 rdf:type owl:NamedIndividual ,
+                   <http://w3.org/ns/dpv#PersonalDataHandling> ;
+          ci:hasStorageProcessing ci:CLStorageProcessing ;
+          ci:hasStoragePurpose ci:CLStoragePurpose ;
+          ci:hasVaguenessCategory ci:CLStorageConditionalityVagueness ;
+          <http://w3.org/ns/dpv#hasDataSubject> ci:CLDataSubject ;
+          <http://w3.org/ns/dpv#hasRecipient> ci:CLDataRecipient ;
+          <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> ci:CLStorageMeasure ,
+                                                                   ci:CLTechnicalorganisationalMeasure .
+
+
+###  http://ontology.example.org/ci#CraigslistPP
+ci:CraigslistPP rdf:type owl:NamedIndividual ,
+                         ci:PrivacyPolicy ;
+                ci:name "Craigslist" .
+
+
+###  http://ontology.example.org/ci#user1CC
+ci:user1CC rdf:type owl:NamedIndividual ,
+                    <http://w3.org/ns/dpv#CreditCardNumber> .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

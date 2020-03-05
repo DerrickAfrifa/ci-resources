@@ -1,0 +1,287 @@
+@prefix : <http://ontology.example.org/ci#> .
+@prefix ci: <http://ontology.example.org/ci#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ontology.example.org/ci> .
+
+<http://ontology.example.org/ci> rdf:type owl:Ontology ;
+                                  owl:imports <https://w3.org/ns/dpv> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ontology.example.org/ci#hasCollectionProcessing
+ci:hasCollectionProcessing rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf <http://w3.org/ns/dpv#hasProcessing> .
+
+
+###  http://ontology.example.org/ci#hasCollectionPurpose
+ci:hasCollectionPurpose rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf <http://w3.org/ns/dpv#hasPurpose> .
+
+
+###  http://ontology.example.org/ci#hasDataSource
+ci:hasDataSource rdf:type owl:ObjectProperty ;
+                 rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> .
+
+
+###  http://ontology.example.org/ci#hasPrivacyPolicy
+ci:hasPrivacyPolicy rdf:type owl:ObjectProperty ;
+                    rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
+                    rdfs:range ci:PrivacyPolicy .
+
+
+###  http://ontology.example.org/ci#hasStorageProcessing
+ci:hasStorageProcessing rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf <http://w3.org/ns/dpv#hasProcessing> .
+
+
+###  http://ontology.example.org/ci#hasStoragePurpose
+ci:hasStoragePurpose rdf:type owl:ObjectProperty ;
+                     rdfs:subPropertyOf <http://w3.org/ns/dpv#hasPurpose> .
+
+
+###  http://ontology.example.org/ci#hasThirdPartyRecipient
+ci:hasThirdPartyRecipient rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf <http://w3.org/ns/dpv#hasRecipient> .
+
+
+###  http://ontology.example.org/ci#hasThirdPartySharingProcessing
+ci:hasThirdPartySharingProcessing rdf:type owl:ObjectProperty ;
+                                  rdfs:subPropertyOf <http://w3.org/ns/dpv#hasProcessing> .
+
+
+###  http://ontology.example.org/ci#hasThirdPartySharingPurpose
+ci:hasThirdPartySharingPurpose rdf:type owl:ObjectProperty ;
+                               rdfs:subPropertyOf <http://w3.org/ns/dpv#hasPurpose> .
+
+
+###  http://ontology.example.org/ci#hasVagueParameter
+ci:hasVagueParameter rdf:type owl:ObjectProperty ;
+                     rdfs:domain ci:VaguenessCategory .
+
+
+###  http://ontology.example.org/ci#hasVaguenessCategory
+ci:hasVaguenessCategory rdf:type owl:ObjectProperty ;
+                        rdfs:range ci:VaguenessCategory .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ontology.example.org/ci#hasDescription
+ci:hasDescription rdf:type owl:DatatypeProperty ;
+                  rdfs:range xsd:string .
+
+
+###  http://ontology.example.org/ci#isStored
+ci:isStored rdf:type owl:DatatypeProperty ;
+            rdfs:domain <http://w3.org/ns/dpv#PersonalDataCategory> ;
+            rdfs:range xsd:boolean .
+
+
+###  http://ontology.example.org/ci#name
+ci:name rdf:type owl:DatatypeProperty ;
+        rdfs:domain ci:PrivacyPolicy ,
+                    <http://w3.org/ns/dpv#DataController> ,
+                    <http://w3.org/ns/dpv#DataSubject> ;
+        rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ontology.example.org/ci#AsApplicable
+ci:AsApplicable rdf:type owl:Class ;
+                rdfs:subClassOf ci:Conditionality .
+
+
+###  http://ontology.example.org/ci#AsAppropriate
+ci:AsAppropriate rdf:type owl:Class ;
+                 rdfs:subClassOf ci:Conditionality .
+
+
+###  http://ontology.example.org/ci#AsNecessary
+ci:AsNecessary rdf:type owl:Class ;
+               rdfs:subClassOf ci:Conditionality .
+
+
+###  http://ontology.example.org/ci#AsNeeded
+ci:AsNeeded rdf:type owl:Class ;
+            rdfs:subClassOf ci:Conditionality .
+
+
+###  http://ontology.example.org/ci#Can
+ci:Can rdf:type owl:Class ;
+       rdfs:subClassOf ci:Modality .
+
+
+###  http://ontology.example.org/ci#Certain
+ci:Certain rdf:type owl:Class ;
+           rdfs:subClassOf ci:NumericQuantifier .
+
+
+###  http://ontology.example.org/ci#Commonly
+ci:Commonly rdf:type owl:Class ;
+            rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Conditionality
+ci:Conditionality rdf:type owl:Class ;
+                  rdfs:subClassOf ci:VaguenessCategory .
+
+
+###  http://ontology.example.org/ci#Could
+ci:Could rdf:type owl:Class ;
+         rdfs:subClassOf ci:Modality .
+
+
+###  http://ontology.example.org/ci#DataSource
+ci:DataSource rdf:type owl:Class .
+
+
+###  http://ontology.example.org/ci#Depending
+ci:Depending rdf:type owl:Class ;
+             rdfs:subClassOf ci:Conditionality .
+
+
+###  http://ontology.example.org/ci#Few
+ci:Few rdf:type owl:Class ;
+       rdfs:subClassOf ci:NumericQuantifier .
+
+
+###  http://ontology.example.org/ci#FromTimeToTime
+ci:FromTimeToTime rdf:type owl:Class ;
+                  rdfs:subClassOf ci:Conditionality .
+
+
+###  http://ontology.example.org/ci#General
+ci:General rdf:type owl:Class ;
+           rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Generalization
+ci:Generalization rdf:type owl:Class ;
+                  rdfs:subClassOf ci:VaguenessCategory .
+
+
+###  http://ontology.example.org/ci#Generally
+ci:Generally rdf:type owl:Class ;
+             rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Largely
+ci:Largely rdf:type owl:Class ;
+           rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Likely
+ci:Likely rdf:type owl:Class ;
+          rdfs:subClassOf ci:Modality .
+
+
+###  http://ontology.example.org/ci#Majority
+ci:Majority rdf:type owl:Class ;
+            rdfs:subClassOf ci:NumericQuantifier .
+
+
+###  http://ontology.example.org/ci#Many
+ci:Many rdf:type owl:Class ;
+        rdfs:subClassOf ci:NumericQuantifier .
+
+
+###  http://ontology.example.org/ci#May
+ci:May rdf:type owl:Class ;
+       rdfs:subClassOf ci:Modality .
+
+
+###  http://ontology.example.org/ci#Might
+ci:Might rdf:type owl:Class ;
+         rdfs:subClassOf ci:Modality .
+
+
+###  http://ontology.example.org/ci#Modality
+ci:Modality rdf:type owl:Class ;
+            rdfs:subClassOf ci:VaguenessCategory .
+
+
+###  http://ontology.example.org/ci#Most
+ci:Most rdf:type owl:Class ;
+        rdfs:subClassOf ci:NumericQuantifier .
+
+
+###  http://ontology.example.org/ci#Mostly
+ci:Mostly rdf:type owl:Class ;
+          rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Normally
+ci:Normally rdf:type owl:Class ;
+            rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#NumericQuantifier
+ci:NumericQuantifier rdf:type owl:Class ;
+                     rdfs:subClassOf ci:VaguenessCategory .
+
+
+###  http://ontology.example.org/ci#Often
+ci:Often rdf:type owl:Class ;
+         rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Possibly
+ci:Possibly rdf:type owl:Class ;
+            rdfs:subClassOf ci:Modality .
+
+
+###  http://ontology.example.org/ci#Primarily
+ci:Primarily rdf:type owl:Class ;
+             rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#PrivacyPolicy
+ci:PrivacyPolicy rdf:type owl:Class .
+
+
+###  http://ontology.example.org/ci#Some
+ci:Some rdf:type owl:Class ;
+        rdfs:subClassOf ci:NumericQuantifier .
+
+
+###  http://ontology.example.org/ci#Sometimes
+ci:Sometimes rdf:type owl:Class ;
+             rdfs:subClassOf ci:Conditionality .
+
+
+###  http://ontology.example.org/ci#Typically
+ci:Typically rdf:type owl:Class ;
+             rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Usually
+ci:Usually rdf:type owl:Class ;
+           rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#VaguenessCategory
+ci:VaguenessCategory rdf:type owl:Class .
+
+
+###  http://ontology.example.org/ci#Widely
+ci:Widely rdf:type owl:Class ;
+          rdfs:subClassOf ci:Generalization .
+
+
+###  http://ontology.example.org/ci#Would
+ci:Would rdf:type owl:Class ;
+         rdfs:subClassOf ci:Modality .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
