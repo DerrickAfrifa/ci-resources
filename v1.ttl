@@ -13,22 +13,6 @@
 #    Object Properties
 #################################################################
 
-###  http://ontology.example.org/ci#hasCollectionProcessing
-:hasCollectionProcessing rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf <http://w3.org/ns/dpv#hasProcessing> ;
-                         rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
-                         rdfs:range <http://w3.org/ns/dpv#Collect> ;
-                         <http://purl.org/dc/terms/description> "This property associates a collection processing instance with a personal data handling instance." .
-
-
-###  http://ontology.example.org/ci#hasCollectionPurpose
-:hasCollectionPurpose rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf <http://w3.org/ns/dpv#hasPurpose> ;
-                      rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
-                      rdfs:range <http://w3.org/ns/dpv#Purpose> ;
-                      <http://purl.org/dc/terms/description> "This property associates a collection purpose with a personal data collection instance." .
-
-
 ###  http://ontology.example.org/ci#hasDataSource
 :hasDataSource rdf:type owl:ObjectProperty ;
                rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
@@ -41,46 +25,6 @@
                   rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
                   rdfs:range :PrivacyPolicy ;
                   <http://purl.org/dc/terms/description> "This property associates a privacy policy with a personal data handling instance." .
-
-
-###  http://ontology.example.org/ci#hasStorageProcessing
-:hasStorageProcessing rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf <http://w3.org/ns/dpv#hasProcessing> ;
-                      rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
-                      rdfs:range <http://w3.org/ns/dpv#Store> ;
-                      <http://purl.org/dc/terms/description> "This property associates a storage processing instance with a personal data handling instance." .
-
-
-###  http://ontology.example.org/ci#hasStoragePurpose
-:hasStoragePurpose rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf <http://w3.org/ns/dpv#hasPurpose> ;
-                   rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
-                   rdfs:range <http://w3.org/ns/dpv#Purpose> ;
-                   <http://purl.org/dc/terms/description> "This property associates a storage purpose with a personal data storage instance." .
-
-
-###  http://ontology.example.org/ci#hasThirdPartyRecipient
-:hasThirdPartyRecipient rdf:type owl:ObjectProperty ;
-                        rdfs:subPropertyOf <http://w3.org/ns/dpv#hasRecipient> ;
-                        rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
-                        rdfs:range <http://w3.org/ns/dpv#ThirdParty> ;
-                        <http://purl.org/dc/terms/description> "This property associates a third party recipient with a personal data handling instance." .
-
-
-###  http://ontology.example.org/ci#hasThirdPartySharingProcessing
-:hasThirdPartySharingProcessing rdf:type owl:ObjectProperty ;
-                                rdfs:subPropertyOf <http://w3.org/ns/dpv#hasProcessing> ;
-                                rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
-                                rdfs:range <http://w3.org/ns/dpv#Share> ;
-                                <http://purl.org/dc/terms/description> "This property associates a third party sharing processing instance with a personal data handling instance." .
-
-
-###  http://ontology.example.org/ci#hasThirdPartySharingPurpose
-:hasThirdPartySharingPurpose rdf:type owl:ObjectProperty ;
-                             rdfs:subPropertyOf <http://w3.org/ns/dpv#hasPurpose> ;
-                             rdfs:domain <http://w3.org/ns/dpv#PersonalDataHandling> ;
-                             rdfs:range <http://w3.org/ns/dpv#Purpose> ;
-                             <http://purl.org/dc/terms/description> "This property associates a sharing purpose with a personal data sharing instance." .
 
 
 ###  http://ontology.example.org/ci#hasViolatingParameter
@@ -100,200 +44,46 @@
 #    Data properties
 #################################################################
 
-###  http://ontology.example.org/ci#hasDescription
-:hasDescription rdf:type owl:DatatypeProperty ;
-                rdfs:range xsd:string .
-
-
-###  http://ontology.example.org/ci#isStored
-:isStored rdf:type owl:DatatypeProperty ;
-          rdfs:domain <http://w3.org/ns/dpv#PersonalDataCategory> ;
-          rdfs:range xsd:boolean .
-
-
-###  http://ontology.example.org/ci#name
-:name rdf:type owl:DatatypeProperty ;
-      rdfs:domain :PrivacyPolicy ,
-                  <http://w3.org/ns/dpv#DataController> ,
-                  <http://w3.org/ns/dpv#DataSubject> ;
-      rdfs:range xsd:string .
+###  http://ontology.example.org/ci#hasIdentity
+:hasIdentity rdf:type owl:DatatypeProperty ;
+             rdfs:domain <http://w3.org/ns/dpv#ThirdParty> ;
+             rdfs:range xsd:boolean .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://ontology.example.org/ci#AsApplicable
-:AsApplicable rdf:type owl:Class ;
-              rdfs:subClassOf :Conditionality .
-
-
-###  http://ontology.example.org/ci#AsAppropriate
-:AsAppropriate rdf:type owl:Class ;
-               rdfs:subClassOf :Conditionality .
-
-
-###  http://ontology.example.org/ci#AsNecessary
-:AsNecessary rdf:type owl:Class ;
-             rdfs:subClassOf :Conditionality .
-
-
-###  http://ontology.example.org/ci#AsNeeded
-:AsNeeded rdf:type owl:Class ;
-          rdfs:subClassOf :Conditionality .
-
-
-###  http://ontology.example.org/ci#Can
-:Can rdf:type owl:Class ;
-     rdfs:subClassOf :Modality .
-
-
-###  http://ontology.example.org/ci#Certain
-:Certain rdf:type owl:Class ;
-         rdfs:subClassOf :NumericQuantifier .
-
-
-###  http://ontology.example.org/ci#Commonly
-:Commonly rdf:type owl:Class ;
-          rdfs:subClassOf :Generalization .
-
-
 ###  http://ontology.example.org/ci#Conditionality
 :Conditionality rdf:type owl:Class ;
-                rdfs:subClassOf :Violation .
-
-
-###  http://ontology.example.org/ci#Could
-:Could rdf:type owl:Class ;
-       rdfs:subClassOf :Modality .
+                rdfs:subClassOf :Violation ;
+                <http://purl.org/dc/terms/description> "The action to be performed is dependent upon a variable or unclear trigger." .
 
 
 ###  http://ontology.example.org/ci#DataSource
 :DataSource rdf:type owl:Class .
 
 
-###  http://ontology.example.org/ci#Depending
-:Depending rdf:type owl:Class ;
-           rdfs:subClassOf :Conditionality .
-
-
-###  http://ontology.example.org/ci#Few
-:Few rdf:type owl:Class ;
-     rdfs:subClassOf :NumericQuantifier .
-
-
-###  http://ontology.example.org/ci#FromTimeToTime
-:FromTimeToTime rdf:type owl:Class ;
-                rdfs:subClassOf :Conditionality .
-
-
-###  http://ontology.example.org/ci#General
-:General rdf:type owl:Class ;
-         rdfs:subClassOf :Generalization .
-
-
 ###  http://ontology.example.org/ci#Generalization
 :Generalization rdf:type owl:Class ;
-                rdfs:subClassOf :Violation .
-
-
-###  http://ontology.example.org/ci#Generally
-:Generally rdf:type owl:Class ;
-           rdfs:subClassOf :Generalization .
-
-
-###  http://ontology.example.org/ci#Largely
-:Largely rdf:type owl:Class ;
-         rdfs:subClassOf :Generalization .
-
-
-###  http://ontology.example.org/ci#Likely
-:Likely rdf:type owl:Class ;
-        rdfs:subClassOf :Modality .
-
-
-###  http://ontology.example.org/ci#Majority
-:Majority rdf:type owl:Class ;
-          rdfs:subClassOf :NumericQuantifier .
-
-
-###  http://ontology.example.org/ci#Many
-:Many rdf:type owl:Class ;
-      rdfs:subClassOf :NumericQuantifier .
-
-
-###  http://ontology.example.org/ci#May
-:May rdf:type owl:Class ;
-     rdfs:subClassOf :Modality .
-
-
-###  http://ontology.example.org/ci#Might
-:Might rdf:type owl:Class ;
-       rdfs:subClassOf :Modality .
+                rdfs:subClassOf :Violation ;
+                <http://purl.org/dc/terms/description> "The action or information types are vaguely abstracted with unclear conditions." .
 
 
 ###  http://ontology.example.org/ci#Modality
 :Modality rdf:type owl:Class ;
-          rdfs:subClassOf :Violation .
-
-
-###  http://ontology.example.org/ci#Most
-:Most rdf:type owl:Class ;
-      rdfs:subClassOf :NumericQuantifier .
-
-
-###  http://ontology.example.org/ci#Mostly
-:Mostly rdf:type owl:Class ;
-        rdfs:subClassOf :Generalization .
-
-
-###  http://ontology.example.org/ci#Normally
-:Normally rdf:type owl:Class ;
-          rdfs:subClassOf :Generalization .
+          rdfs:subClassOf :Violation ;
+          <http://purl.org/dc/terms/description> "The likelihood or possibility of the action is vague or ambiguous." .
 
 
 ###  http://ontology.example.org/ci#NumericQuantifier
 :NumericQuantifier rdf:type owl:Class ;
-                   rdfs:subClassOf :Violation .
-
-
-###  http://ontology.example.org/ci#Often
-:Often rdf:type owl:Class ;
-       rdfs:subClassOf :Generalization .
-
-
-###  http://ontology.example.org/ci#Possibly
-:Possibly rdf:type owl:Class ;
-          rdfs:subClassOf :Modality .
-
-
-###  http://ontology.example.org/ci#Primarily
-:Primarily rdf:type owl:Class ;
-           rdfs:subClassOf :Generalization .
+                   rdfs:subClassOf :Violation ;
+                   <http://purl.org/dc/terms/description> "The action or information type has a vague quantifier." .
 
 
 ###  http://ontology.example.org/ci#PrivacyPolicy
 :PrivacyPolicy rdf:type owl:Class .
-
-
-###  http://ontology.example.org/ci#Some
-:Some rdf:type owl:Class ;
-      rdfs:subClassOf :NumericQuantifier .
-
-
-###  http://ontology.example.org/ci#Sometimes
-:Sometimes rdf:type owl:Class ;
-           rdfs:subClassOf :Conditionality .
-
-
-###  http://ontology.example.org/ci#Typically
-:Typically rdf:type owl:Class ;
-           rdfs:subClassOf :Generalization .
-
-
-###  http://ontology.example.org/ci#Usually
-:Usually rdf:type owl:Class ;
-         rdfs:subClassOf :Generalization .
 
 
 ###  http://ontology.example.org/ci#VaguenessCategory
@@ -304,35 +94,13 @@
 :Violation rdf:type owl:Class .
 
 
-###  http://ontology.example.org/ci#Widely
-:Widely rdf:type owl:Class ;
-        rdfs:subClassOf :Generalization .
-
-
-###  http://ontology.example.org/ci#Would
-:Would rdf:type owl:Class ;
-       rdfs:subClassOf :Modality .
-
-
 #################################################################
 #    Individuals
 #################################################################
 
-###  http://ontology.example.org/ci#CLAsNeeded
-:CLAsNeeded rdf:type owl:NamedIndividual ,
-                     :AsNeeded ;
-            :hasDescription "We retain data as needed for our business purposes and/or as required by law." .
-
-
 ###  http://ontology.example.org/ci#CLCollectionProcessing
 :CLCollectionProcessing rdf:type owl:NamedIndividual ,
                                  <http://w3.org/ns/dpv#Collect> .
-
-
-###  http://ontology.example.org/ci#CLDataRecipient
-:CLDataRecipient rdf:type owl:NamedIndividual ,
-                          <http://w3.org/ns/dpv#Recipient> ;
-                 :name "Craigslist" .
 
 
 ###  http://ontology.example.org/ci#CLDataSubject
@@ -350,6 +118,16 @@
 :CLImproveServiceCollectionPurpose rdf:type owl:NamedIndividual ,
                                             <http://w3.org/ns/dpv#Purpose> ;
                                    <http://purl.org/dc/terms/description> "provide/improve our services" .
+
+
+###  http://ontology.example.org/ci#CLRecipient
+:CLRecipient rdf:type owl:NamedIndividual ,
+                      <http://w3.org/ns/dpv#Recipient> .
+
+
+###  http://ontology.example.org/ci#CLShareProcessing
+:CLShareProcessing rdf:type owl:NamedIndividual ,
+                            <http://w3.org/ns/dpv#Share> .
 
 
 ###  http://ontology.example.org/ci#CLStorageConditionalityViolation
@@ -371,7 +149,8 @@
 
 
 ###  http://ontology.example.org/ci#CLStoragePurpose
-:CLStoragePurpose rdf:type owl:NamedIndividual ;
+:CLStoragePurpose rdf:type owl:NamedIndividual ,
+                           <http://w3.org/ns/dpv#Purpose> ;
                   <http://purl.org/dc/terms/description> "We retain data as needed for our business purposes and/or as required by law." .
 
 
@@ -389,7 +168,8 @@
 
 ###  http://ontology.example.org/ci#CLThirdPartyRecipient
 :CLThirdPartyRecipient rdf:type owl:NamedIndividual ,
-                                <http://w3.org/ns/dpv#ThirdParty> .
+                                <http://w3.org/ns/dpv#ThirdParty> ;
+                       rdfs:label "Payment processor" .
 
 
 ###  http://ontology.example.org/ci#CLThirdPartySource
@@ -400,14 +180,14 @@
 ###  http://ontology.example.org/ci#CLdh01
 :CLdh01 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasCollectionProcessing :CLCollectionProcessing ;
-        :hasCollectionPurpose :CLFraudCombatCollectionPurpose ,
-                              :CLImproveServiceCollectionPurpose ;
         :hasDataSource :CLDataSubject ;
         :hasPrivacyPolicy :CraigslistPP ;
         :hasViolation :CLTOMConditionalityViolation ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLCollectionProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLFraudCombatCollectionPurpose ,
+                                          :CLImproveServiceCollectionPurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLTechnicalorganisationalMeasure ;
         <http://purl.org/dc/terms/description> "data you post on or send via CL, and/or send us directly or via other sites" .
 
@@ -415,14 +195,13 @@
 ###  http://ontology.example.org/ci#CLdh02
 :CLdh02 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasCollectionProcessing :CLCollectionProcessing ;
-        :hasCollectionPurpose :CLFraudCombatCollectionPurpose ,
-                              :CLImproveServiceCollectionPurpose ;
         :hasPrivacyPolicy :CraigslistPP ;
-        :hasThirdPartyRecipient :CLThirdPartyRecipient ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
         <http://w3.org/ns/dpv#hasPersonalDataCategory> :CLdh02CCData ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLShareProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLFraudCombatCollectionPurpose ,
+                                          :CLImproveServiceCollectionPurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLThirdPartyRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLTechnicalorganisationalMeasure ;
         <http://purl.org/dc/terms/description> "credit card data, which is transmitted to payment processors via a security protocol (e.g. SSL)." .
 
@@ -435,16 +214,16 @@
 ###  http://ontology.example.org/ci#CLdh03
 :CLdh03 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasCollectionProcessing :CLCollectionProcessing ;
-        :hasCollectionPurpose :CLFraudCombatCollectionPurpose ,
-                              :CLImproveServiceCollectionPurpose ;
         :hasDataSource :CLDataSubject ;
         :hasPrivacyPolicy :CraigslistPP ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
         <http://w3.org/ns/dpv#hasPersonalDataCategory> :CLdh03Address ,
                                                        :CLdh03Email ,
                                                        :CLdh03Name ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLCollectionProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLFraudCombatCollectionPurpose ,
+                                          :CLImproveServiceCollectionPurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLTechnicalorganisationalMeasure ;
         <http://purl.org/dc/terms/description> "data you submit or provide (e.g. name, address, email, phone, fax, photos, tax ID)." .
 
@@ -467,14 +246,14 @@
 ###  http://ontology.example.org/ci#CLdh04
 :CLdh04 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasCollectionProcessing :CLCollectionProcessing ;
-        :hasCollectionPurpose :CLFraudCombatCollectionPurpose ,
-                              :CLImproveServiceCollectionPurpose ;
         :hasPrivacyPolicy :CraigslistPP ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
         <http://w3.org/ns/dpv#hasPersonalDataCategory> :CLdh04BrowsingBehaviour ,
                                                        :CLdh04IPAddress ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLCollectionProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLFraudCombatCollectionPurpose ,
+                                          :CLImproveServiceCollectionPurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLTechnicalorganisationalMeasure ;
         <http://purl.org/dc/terms/description> "web log data (e.g. web pages viewed, access times, IP address, HTTP headers)." .
 
@@ -492,14 +271,14 @@
 ###  http://ontology.example.org/ci#CLdh05
 :CLdh05 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasCollectionProcessing :CLCollectionProcessing ;
-        :hasCollectionPurpose :CLFraudCombatCollectionPurpose ,
-                              :CLImproveServiceCollectionPurpose ;
         :hasDataSource :CLdh05CookieSource ;
         :hasPrivacyPolicy :CraigslistPP ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
         <http://w3.org/ns/dpv#hasPersonalDataCategory> :CLdh05BrowsingBehaviour ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLCollectionProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLFraudCombatCollectionPurpose ,
+                                          :CLImproveServiceCollectionPurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLTechnicalorganisationalMeasure ;
         <http://purl.org/dc/terms/description> "data collected via cookies (e.g. search data and \"favorites\" lists)." .
 
@@ -517,14 +296,14 @@
 ###  http://ontology.example.org/ci#CLdh06
 :CLdh06 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasCollectionProcessing :CLCollectionProcessing ;
-        :hasCollectionPurpose :CLFraudCombatCollectionPurpose ,
-                              :CLImproveServiceCollectionPurpose ;
         :hasDataSource :CLdh06DeviceSource ;
         :hasPrivacyPolicy :CraigslistPP ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
         <http://w3.org/ns/dpv#hasPersonalDataCategory> :CLdh06DeviceInfo ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLCollectionProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLFraudCombatCollectionPurpose ,
+                                          :CLImproveServiceCollectionPurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLTechnicalorganisationalMeasure ;
         <http://purl.org/dc/terms/description> "data about your device(s) (e.g. screen size, DOM local storage, plugins)." .
 
@@ -542,13 +321,13 @@
 ###  http://ontology.example.org/ci#CLdh07
 :CLdh07 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasCollectionProcessing :CLCollectionProcessing ;
-        :hasCollectionPurpose :CLFraudCombatCollectionPurpose ,
-                              :CLImproveServiceCollectionPurpose ;
         :hasDataSource :CLThirdPartySource ;
         :hasPrivacyPolicy :CraigslistPP ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLCollectionProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLFraudCombatCollectionPurpose ,
+                                          :CLImproveServiceCollectionPurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLTechnicalorganisationalMeasure ;
         <http://purl.org/dc/terms/description> "data from 3rd parties (e.g. phone type, geo-location via IP address)." .
 
@@ -556,11 +335,11 @@
 ###  http://ontology.example.org/ci#CLdh08
 :CLdh08 rdf:type owl:NamedIndividual ,
                  <http://w3.org/ns/dpv#PersonalDataHandling> ;
-        :hasStorageProcessing :CLStorageProcessing ;
-        :hasStoragePurpose :CLStoragePurpose ;
         :hasViolation :CLStorageConditionalityViolation ;
         <http://w3.org/ns/dpv#hasDataSubject> :CLDataSubject ;
-        <http://w3.org/ns/dpv#hasRecipient> :CLDataRecipient ;
+        <http://w3.org/ns/dpv#hasProcessing> :CLStorageProcessing ;
+        <http://w3.org/ns/dpv#hasPurpose> :CLStoragePurpose ;
+        <http://w3.org/ns/dpv#hasRecipient> :CLRecipient ;
         <http://w3.org/ns/dpv#hasTechnicalOrganisationalMeasure> :CLStorageMeasure ,
                                                                  :CLTechnicalorganisationalMeasure .
 
